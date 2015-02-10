@@ -8,4 +8,7 @@ RSpec.describe User, type: :model do
 
   it { should have_valid(:last_name).when('Smith') }
   it { should_not have_valid(:last_name).when(*blanks) }
+
+  it { should have_many :tasks }
+  it { should have_many(:tasks).dependent(:destroy) }
 end
